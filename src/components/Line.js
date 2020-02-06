@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 
 function Line(props) {
-  const { symbol, title } = props;
+  let { symbol, title } = props;
+  const [mouseOver, setMouseOver] = useState(false);
   return (
     <>
       <li
@@ -27,9 +28,16 @@ function Line(props) {
           // Remove it as its not needed anymore
           document.body.removeChild(dummy);
         }}
+        onMouseOver={() => {
+          setMouseOver(true);
+        }}
+        onMouseOut={() => {
+          setMouseOver(false);
+        }}
       >
         <span>{symbol}</span>
         <span className="title">{title}</span>
+        <p>{mouseOver && "Click to copy !"}</p>
       </li>
     </>
   );

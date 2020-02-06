@@ -7,12 +7,27 @@ import emojiListJSON from "./assets/json/emoji.json";
 
 function App() {
   const [search, setSearch] = useState("");
+  const [mouseOver, setMouseOver] = useState(false);
   const emojiListJSX = emojiListJSON.map(item => {
     if (search === "") {
-      return <Line symbol={item.symbol} title={item.title}></Line>;
+      return (
+        <Line
+          symbol={item.symbol}
+          title={item.title}
+          mouseOver={mouseOver}
+          setMouseOver={setMouseOver}
+        ></Line>
+      );
     } else {
       if (item.keywords.toLowerCase().includes(search.toLowerCase())) {
-        return <Line symbol={item.symbol} title={item.title}></Line>;
+        return (
+          <Line
+            symbol={item.symbol}
+            title={item.title}
+            mouseOver={mouseOver}
+            setMouseOver={setMouseOver}
+          ></Line>
+        );
       } else {
         return null;
       }
