@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 
 function Line(props) {
-  let { symbol, title } = props;
+  let { id, title } = props;
   const [mouseOver, setMouseOver] = useState(false);
   return (
     <>
       <li
         className="line"
         onClick={() => {
-          console.log(symbol);
+          console.log(id);
           // create a dummy html tag input with value symbol
           let dummy = document.createElement("input");
           document.body.appendChild(dummy);
@@ -17,7 +17,7 @@ function Line(props) {
           dummy.setAttribute("id", "dummy_id");
 
           // Output the array into it
-          document.getElementById("dummy_id").value = symbol;
+          document.getElementById("dummy_id").value = id;
 
           // Select it
           dummy.select();
@@ -35,7 +35,7 @@ function Line(props) {
           setMouseOver(false);
         }}
       >
-        <span>{symbol}</span>
+        <span id={id}>{id}</span>
         <span className="title">{title}</span>
         <p>{mouseOver && "Click to copy !"}</p>
       </li>
