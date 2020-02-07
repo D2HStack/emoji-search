@@ -10,10 +10,12 @@ function App() {
 
   const emojiListJSX = emojiListJSON.map(item => {
     if (search === "") {
-      return <Line id={item.symbol} title={item.title}></Line>;
+      return <Line key={item.title} id={item.symbol} title={item.title}></Line>;
     } else {
       if (item.keywords.toLowerCase().includes(search.toLowerCase())) {
-        return <Line id={item.symbol} title={item.title}></Line>;
+        return (
+          <Line key={item.title} id={item.symbol} title={item.title}></Line>
+        );
       } else {
         return null;
       }
