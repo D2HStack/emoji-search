@@ -8,25 +8,25 @@ function Line(props) {
       <li
         className="line"
         onClick={() => {
-          console.log(id);
           // create a dummy html tag input with value symbol
-          let dummy = document.createElement("input");
-          document.body.appendChild(dummy);
+          // let dummy = document.createElement("input");
+          // document.body.appendChild(dummy);
 
-          // Set its ID
-          dummy.setAttribute("id", "dummy_id");
+          // // Set its ID
+          // dummy.setAttribute("id", "dummy_id");
 
-          // Output the array into it
-          document.getElementById("dummy_id").value = id;
+          // // Output the array into it
+          // document.getElementById("dummy_id").value = id;
 
-          // Select it
-          dummy.select();
+          // // Select it
+          // dummy.select();
 
-          // Copy its contents
-          document.execCommand("copy");
+          // // Copy its contents
+          // document.execCommand("copy");
 
-          // Remove it as its not needed anymore
-          document.body.removeChild(dummy);
+          // // Remove it as its not needed anymore
+          // document.body.removeChild(dummy);
+          navigator.clipboard.writeText(id);
         }}
         onMouseOver={() => {
           setMouseOver(true);
